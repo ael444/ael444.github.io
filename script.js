@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTitle = document.getElementById('modal-title');
     const modalGallery = document.getElementById('modal-gallery');
     const closeBtn = document.querySelector('.close');
+    const scrollArrow = document.querySelector('.scroll-arrow');
 
     // Sample project data (replace with your own)
     const projects = {
@@ -39,6 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    scrollArrow.addEventListener('click', () => {
+        window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth'
+        });
+    });
+
     function showModal(category) {
         modalTitle.textContent = category.replace('-', ' ').toUpperCase();
         modalGallery.innerHTML = '';
@@ -53,4 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         modal.style.display = 'block';
     }
+
+    // Hide scroll arrow when scrolling down
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            scrollArrow.style.opacity = '0';
+        } else {
+            scrollArrow.style.opacity = '1';
+        }
+    });
 });
