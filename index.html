@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Your Name</h1>
+        <p>Welcome to my portfolio</p>
+    </header>
+    
+    <main>
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>Here's a brief introduction about yourself and your work.</p>
+        </section>
+        
+        <section id="categories">
+            <h2>My Work</h2>
+            <ul id="category-list">
+                <li><a href="#" data-category="web-design">Web Design</a></li>
+                <li><a href="#" data-category="graphic-design">Graphic Design</a></li>
+                <li><a href="#" data-category="photography">Photography</a></li>
+                <!-- Add more categories as needed -->
+            </ul>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div id="modal-gallery"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
