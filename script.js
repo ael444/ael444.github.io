@@ -3,71 +3,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('modal');
     const modalTitle = document.getElementById('modal-title');
     const modalGallery = document.getElementById('modal-gallery');
-    const closeBtn = document.querySelector('.close');
-    const scrollArrow = document.querySelector('.scroll-arrow');
-
-    // Sample project data (replace with your own)
-    const projects = {
-        'web-design': [
-            { title: 'Project 1', image: 'path/to/image1.jpg' },
-            { title: 'Project 2', image: 'path/to/image2.jpg' },
-        ],
-        'graphic-design': [
-            { title: 'Design 1', image: 'path/to/design1.jpg' },
-            { title: 'Design 2', image: 'path/to/design2.jpg' },
-        ],
-        'photography': [
-            { title: 'Photo 1', image: 'path/to/photo1.jpg' },
-            { title: 'Photo 2', image: 'path/to/photo2.jpg' },
-        ],
-    };
+    const closeModal = document.querySelector('.close');
 
     categoryLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
             const category = link.getAttribute('data-category');
-            showModal(category);
+            modalTitle.textContent = link.textContent;
+            loadCategoryContent(category);
+            modal.style.display = 'block';
         });
     });
 
-    closeBtn.addEventListener('click', () => {
+    closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
     });
 
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
             modal.style.display = 'none';
         }
     });
 
-    scrollArrow.addEventListener('click', () => {
-        window.scrollTo({
-            top: window.innerHeight,
-            behavior: 'smooth'
-        });
-    });
-
-    function showModal(category) {
-        modalTitle.textContent = category.replace('-', ' ').toUpperCase();
+    function loadCategoryContent(category) {
+        // Clear previous content
         modalGallery.innerHTML = '';
 
-        projects[category].forEach(project => {
-            const img = document.createElement('img');
-            img.src = project.image;
-            img.alt = project.title;
-            img.title = project.title;
-            modalGallery.appendChild(img);
-        });
+        // Load new content based on the category
+        // This is a placeholder function. Replace this with your actual content loading logic.
+        const content = {
+            'digital-transformation': [
+                { src: 'images/digital1.jpg', alt: 'Digital Transformation 1' },
+                { src: 'images/digital2.jpg', alt: 'Digital Transformation 2' },
+                // Add more images or content as needed
+            ],
+            'creator-innovator': [
+                { src: 'images/creator1.jpg', alt: 'Creator 1' },
+                { src: 'images/creator2.jpg', alt: 'Creator 2' },
+                // Add more images or content as needed
+            ],
+            'learning-development': [
+                { src: 'images/learning1.jpg', alt: 'Learning 1' },
+                { src: 'images/learning2.jpg', alt: 'Learning 2' },
+                // Add more images or content as needed
+            ]
+            // Add more categories as needed
+        };
 
-        modal.style.display = 'block';
-    }
-
-    // Hide scroll arrow when scrolling down
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            scrollArrow.style.opacity = '0';
-        } else {
-            scrollArrow.style.opacity = '1';
+        if (content[category]) {
+            content[category].forEach(item => {
+                const img = document.createElement('img');
+                img.src = item.src;
+                img.alt = item.alt;
+                modalGallery.appendChild(img);
+            });
         }
-    });
+    }
 });

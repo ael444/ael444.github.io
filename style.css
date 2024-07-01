@@ -7,18 +7,19 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #7EBADC;  /* Updated background color */
 }
 
 #splash {
     height: 100vh;
-    background-color: #000;
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-align: left;
     color: #fff;
     padding: 0 2rem;
+    position: relative;
+    overflow: hidden;  /* Ensure the pseudo-elements do not overflow */
 }
 
 .splash-image {
@@ -26,20 +27,41 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .splash-image img {
     max-height: 90%;
     max-width: 90%;
     border-radius: 10px;
-    filter: grayscale(100%);
+    z-index: 1;
+}
+
+/* Adding pseudo-elements for the stylized white lines */
+.splash-image::before,
+.splash-image::after {
+    content: '';
+    position: absolute;
+    height: 4px;  /* Adjust the height for the thickness of the line */
+    width: 200%;  /* Extend the lines beyond the right edge */
+    background: #001419;
+}
+
+.splash-image::before {
+    top: 0;
+    left: 0;
+}
+
+.splash-image::after {
+    bottom: 0;
+    left: 0;
 }
 
 .splash-content {
     flex: 1;
-    background-color: rgba(0, 0, 0, 0.5);
     padding: 2rem;
     border-radius: 10px;
+    z-index: 2;
 }
 
 h1 {
@@ -56,6 +78,7 @@ p {
     bottom: 2rem;
     font-size: 2rem;
     animation: bounce 2s infinite;
+    z-index: 2;
 }
 
 @keyframes bounce {
@@ -74,6 +97,11 @@ main {
     padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
+    color: #fff;  /* Ensure text is visible on dark background */
+}
+
+#overview {
+    margin-bottom: 2rem;  /* Add space between sections */
 }
 
 #category-list {
