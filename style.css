@@ -12,19 +12,31 @@ body {
 
 #splash {
     height: 100vh;
-    background-image: url('images/robot_teacher.jpeg');
-    background-size: cover;
-    background-position: center;
+    background-color: #000;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    color: #fff;
+    padding: 0 2rem;
+}
+
+.splash-image {
+    flex: 1;
+    display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    color: #fff;
-    position: relative;
+}
+
+.splash-image img {
+    max-height: 90%;
+    max-width: 90%;
+    border-radius: 10px;
+    filter: grayscale(100%);
 }
 
 .splash-content {
+    flex: 1;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 2rem;
     border-radius: 10px;
@@ -33,6 +45,10 @@ body {
 h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.2rem;
 }
 
 .scroll-arrow {
