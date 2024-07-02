@@ -5,9 +5,9 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    background-color: #7EBADC;  /* Updated background color */
+    background-color: #7EBADC;
 }
 
 #splash {
@@ -19,7 +19,37 @@ body {
     color: #fff;
     padding: 0 2rem;
     position: relative;
-    overflow: hidden;  /* Ensure the pseudo-elements do not overflow */
+    overflow: hidden;
+}
+
+/* Circle styles */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Floating circles */
+#splash::before,
+#splash::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#splash::before {
+    width: 150px;
+    height: 150px;
+    top: 20%;
+    left: 10%;
+}
+
+#splash::after {
+    width: 100px;
+    height: 100px;
+    bottom: 30%;
+    right: 15%;
 }
 
 .splash-image {
@@ -33,28 +63,8 @@ body {
 .splash-image img {
     max-height: 90%;
     max-width: 90%;
-    border-radius: 10px;
+    border-radius: 50%; /* Make image circular */
     z-index: 1;
-}
-
-/* Adding pseudo-elements for the stylized white lines */
-.splash-image::before,
-.splash-image::after {
-    content: '';
-    position: absolute;
-    height: 4px;  /* Adjust the height for the thickness of the line */
-    width: 200%;  /* Extend the lines beyond the right edge */
-    background: #001419;
-}
-
-.splash-image::before {
-    top: 0;
-    left: 0;
-}
-
-.splash-image::after {
-    bottom: 0;
-    left: 0;
 }
 
 .splash-content {
@@ -65,11 +75,19 @@ body {
 }
 
 h1 {
+    font-family: 'Lobster', cursive;
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
+h2 {
+    font-family: 'Lobster', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
 p {
+    font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
 }
 
@@ -97,11 +115,11 @@ main {
     padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
-    color: #fff;  /* Ensure text is visible on dark background */
+    color: #fff;
 }
 
 #overview {
-    margin-bottom: 2rem;  /* Add space between sections */
+    margin-bottom: 2rem;
 }
 
 #category-list {
