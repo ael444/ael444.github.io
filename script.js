@@ -37,16 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 { src: 'images/digital2.jpg', alt: 'Digital Transformation 2' },
                 // Add more images or content as needed
             ],
-            'creator-innovator': [
-                { src: 'images/creator1.jpg', alt: 'Creator 1' },
-                { src: 'images/creator2.jpg', alt: 'Creator 2' },
-                // Add more images or content as needed
-            ],
             'learning-development': [
                 { src: 'images/learning1.jpg', alt: 'Learning 1' },
                 { src: 'images/learning2.jpg', alt: 'Learning 2' },
                 // Add more images or content as needed
+            ],
+            'creator-innovator': [
+                { src: 'images/creator1.jpg', alt: 'Creator 1' },
+                { src: 'images/creator2.jpg', alt: 'Creator 2' },
+                // Add more images or content as needed
             ]
+
             // Add more categories as needed
         };
 
